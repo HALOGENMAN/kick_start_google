@@ -4,7 +4,7 @@ using namespace std;
 
 
 int main(){
-    int a,b,c,test,a1[50],a2[50],c1,p[20],k;
+    int a,b,c,test,a1[100],a2[100],c1,p[100],k;
     c1=1;
     cin>>test;
     while(c1<=test){
