@@ -4,11 +4,11 @@ using namespace std;
 
 
 int main(){
-    int a,b,c,test,a1[50],a2[50],c1,p,k;
+    int a,b,c,test,a1[50],a2[50],c1,p[20],k;
     c1=1;
     cin>>test;
     while(c1<=test){
-        p=0;
+        p[c1]=0;
         cin>>a>>b>>c;
         for(int i=0;i<b;i++){
             cin>>a1[i];
@@ -25,15 +25,17 @@ int main(){
                 for(int p=0;p<b;p++){
                     if(kk==a1[p]){k=1;}
                 }
-                if(k==0){p++;}
+                if(k==0){p[c1]++;}
                 
                 cc++;
                 
                 kk=j*cc;
             }
         }
-        cout<<"Case#"<<c<<":"<<p<<"\n";
         c1++;
+    }
+    for(int i=1;i<=test;i++){
+        cout<<"Case#"<<i<<":"<<p[i]<<"\n";
     }
     
     return 0;
