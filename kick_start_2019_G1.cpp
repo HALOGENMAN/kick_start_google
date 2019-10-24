@@ -27,7 +27,7 @@ int main(){
        j++;
     }
     for(int i=1;i<=test;i++){
-        cout<<"Case#"<<i<<":"<<d1[i]<<"\n";
+        cout<<"Case #"<<i<<": "<<d1[i]<<"\n";
     }
     return 0;
 }
