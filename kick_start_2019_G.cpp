@@ -35,7 +35,7 @@ int main(){
         c1++;
     }
     for(int i=1;i<=test;i++){
-        cout<<"Case#"<<i<<":"<<p[i]<<"\n";
+        cout<<"Case #"<<i<<": "<<p[i]<<"\n";
     }
     
     return 0;
