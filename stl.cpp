@@ -79,7 +79,11 @@ void map_demo(){
     A[10000232]=1;
     map<char,int>cnt;
     string x = "shayak malakar";
-    
+    for(char c: x){
+        cnt[c]++;
+    }
+    //you can also find or delete any element by using A.find("element") and A.erase("element")
+    cout<<cnt['a']<<" "<<cnt['k']<<endl;
 }
 int main(){
     //vector_demo();
