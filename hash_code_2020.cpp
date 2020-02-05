@@ -1,16 +1,18 @@
 #include<iostream>
+#include<vector>
 
 using namespace std;
 
 int main(){
-    int max , pizz;
+    long max , pizz;
     cin>>max>>pizz;
-    int a[1000];
-    int sum=0;
+    vector<long> a;
+    long sum=0;
     int flag = 0;
-
+    int k;
     for(int i=0;i<pizz;i++){
-        cin>>a[i];
+        cin>>k;
+        a.push_back(k);
     }
 
     for(int i=0;i<pizz;i++){
@@ -55,3 +57,4 @@ int main(){
     }
 
 }
+
