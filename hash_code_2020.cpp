@@ -1,60 +1,46 @@
 #include<iostream>
 #include<vector>
+#include<map>
 
 using namespace std;
 
 int main(){
-    long max , pizz;
-    cin>>max>>pizz;
+    long max,pizz;
     vector<long> a;
+    vector<int> location;
+    map<int,vector<int>> location2;
+    
+    cin>>max>>pizz;
+    int a1;
     long sum=0;
-    int flag = 0;
-    int k;
     for(int i=0;i<pizz;i++){
-        cin>>k;
-        a.push_back(k);
+        cin>>a1;
+        a.push_back(a1);
     }
-
-    for(int i=0;i<pizz;i++){
-        sum += a[i];
-    }
-    if(sum <= max){
-        cout<<endl;
-        cout<<pizz<<endl;
-        for(int i=0;i<pizz;i++){
-            cout<<i<<" ";
-        }
-    }
-    else{
-        int c=0;
-        while(c != pizz){
-            for(int j=c;j<pizz;j++){      
-                for(int i=c;i<pizz;i++){    
-                    if(i!=j){
-                        sum += a[i];
-                    }
-                }
-                if(sum <= max){
-                    cout<<endl;
-                    cout<<(pizz-c-1)<<endl;
-                    for(int i=c;i<pizz;i++){
-                        if(i!=j){
-                            cout<<i<<" ";
-                        }
-                    }
-                    flag = 1;
-                }
-                if(flag == 1){
-                    break;
-                }
-                sum = 0;
+    cout<<endl;
+    for(int j= a.size()-1;j>=0;j--){
+        sum=0;
+        location.clear();
+        for(int i=j;i >= 0;i--){
+            sum+=a[i];
+           
+            if(max < sum){
+               
+               sum-=a[i];
             }
-            if(flag == 1){
-                    break;
+            else{
+                location.push_back(i);
             }
-            c++;
+            
         }
+        location2.insert(pair<int,vector<int>>(sum,location));
+    }
+    map<int,vector<int>>::iterator p = location2.end(); 
+    vector<int>::iterator k;
+    p--;
+    cout<<p->second.size()<<endl;
+    for(int i= p->second.size()-1;i>=0;i--){
+        cout<< p->second[i]<<" ";
     }
 
 }
-
