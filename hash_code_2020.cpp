@@ -39,6 +39,7 @@ int main(){
     vector<int>::iterator k;
     p--;
     cout<<p->second.size()<<endl;
+    //cout<<p->first<<endl;
     for(int i= p->second.size()-1;i>=0;i--){
         cout<< p->second[i]<<" ";
     }
