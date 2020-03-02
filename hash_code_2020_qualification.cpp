@@ -7,8 +7,9 @@ using namespace std;
 
 vector<int> read(vector<int> &take,vector<long> &scanned_books,int days,int scan){
     vector<int> aa;
+    aa.clear();
     int size = 0;
-    int day = scan*days;
+    long day = (long)scan*(long)days;
     while(day>0 && size<take.size()-2){
         if(scanned_books[take[size]]==0){
             aa.push_back(take[size]);
@@ -36,7 +37,6 @@ int main(){
         cin>>k;
         score.push_back(k);
     }
-
     int book_no,login,scan;
 
     double percent;
@@ -56,20 +56,53 @@ int main(){
   
     }
     itr = queue.rbegin();
-    
+    cout<<endl;
     while(days>0 && itr != queue.rend()){
         temp.clear();
         days-= *(itr->second.second.end()-2);
         if(days<1){
             break;
         }
+        //cout<<itr->second.second.size()<<"\t"<<itr->second.second[0];
         temp = read(itr->second.second,scanned_books,days,*(itr->second.second.end()-1));
-        aa.first = itr->second.first;
-        aa.second = temp;
-        output.push_back(aa);
+        if(temp.size()==0){
+            days+= *(itr->second.second.end()-2);
+        }
+        else{
+            aa.first = itr->second.first;
+            aa.second = temp;
+            output.push_back(aa);
+        }
         itr++;
     }
-
+    // cout<<endl;
+    //  while(days>0 && itr != queue.rend()){
+    //     temp.clear();
+    //     days-= *(itr->second.second.end()-2);
+    //     if(days<1){
+    //         break;
+    //     }
+    //     //cout<<itr->second.second.size()<<"\t"<<itr->second.second[0];
+    //     //temp = read(itr->second.second,scanned_books,days,*(itr->second.second.end()-1));
+    //     int size = 0;
+    //     int scan = *(itr->second.second.end()-1);
+    //     long day = (long)scan*(long)days;
+    //     cout<<" "<<day<<" "<<scan<<" "<<days;
+    //     while(day>0 && size<itr->second.second.size()-2){
+    //         if(scanned_books[itr->second.second[size]]==0){
+    //             temp.push_back(itr->second.second[size]);
+    //             scanned_books[itr->second.second[size]] = 1;
+    //             day--;
+    //         }
+    //         size++;
+    //     }
+    //     cout<<" "<<temp.size()<<endl;
+    //     aa.first = itr->second.first;
+    //     aa.second = temp;
+    //     output.push_back(aa);
+    //     itr++;
+    // }
+    // cout<<endl;
     // for(int i=0;i<lib_no;i++){
     //     cin>>book_no>>login>>scan;
     //     temp.clear();
@@ -107,5 +140,5 @@ int main(){
         }
         cout<<endl;
     }
-   
+    // cout<<"\n"<<scanned_books[42134];
 }
