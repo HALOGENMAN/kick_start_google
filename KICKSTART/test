@@ -1,0 +1,14 @@
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int test,k;
+    cin>>test;
+    k=1;
+    while(test>0){
+
+        k++;
+        test--;
+    }
+}
